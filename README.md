@@ -25,7 +25,7 @@ dotnet restore
 ```
 
 ### Execute a Aplicação:
-Na pasta 'Api' execute o comando CLI:
+Na pasta '**Api**' execute o comando CLI:
 ```
 dotnet run
 ```

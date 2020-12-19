@@ -4,8 +4,8 @@
 ###### API com Documentação do Swagger.  
 ###### Testes de Unidade.  
 ###### Arquivo Dockerfile pronto para publicar API no Heroku.
+###### Dados Entity Framework InMemory
 
-Obs: Dados Entity Framework InMemory
 
 ---
 

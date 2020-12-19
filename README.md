@@ -4,37 +4,45 @@
 ###### API com Documentação do Swagger.  
 ###### Testes de Unidade.  
 ###### Arquivo Dockerfile pronto para publicar API no Heroku.
-###### Dados Entity Framework InMemory
 
 
 ---
 
 
-## Início Rápido:
+# Início Rápido:
 
-Se ainda não possui o .NET Core SDK instalado, segue o [link](https://docs.microsoft.com/pt-br/dotnet/core/install/windows?tabs=netcore31) de suporte a instalação. 
+Se ainda não possui o .NET Core SDK instalado, segue o link de suporte a instalação:   
+[link](https://docs.microsoft.com/pt-br/dotnet/core/install/windows?tabs=netcore31)  
+
 Obs: instale a versão 3.1
 
 
-#### Restarure os pacotes utilizados no projeto, usando o seguinte comando CLI na pasta onde está a Solution (Backend.sln):
+Seguimos com comandos CLI utilizados:
+
+### Restaurar pacotes:
 ```
 dotnet restore
 ```
 
-#### Execute a Aplicação:
+### Execute a Aplicação:
 Na pasta 'Api' execute o comando CLI:
 ```
 dotnet run
 ```
 
-Se tudo ocorreu bem, a seguinte URL ficará disponível:  
+Se tudo ocorreu bem, a seguinte URL ficará disponível:   
 http://localhost:5000
 
+Para acessar a documentação da API:  
+http://localhost:5000/index.html
 
 
 
+---
 
-## Tipos de projetos utilizados:
+
+
+# Tipos de projetos utilizados:
 
 ###### WebApi:
 ```
@@ -51,48 +59,65 @@ Infra
 ```
 Tests
 ```
-Testes de unidade.
+Para testes de unidade
 
 
-#### Comandos CLI usados na criação dos projetos:
+---
+
+
+# Comandos CLI usados na criação dos projetos:
 ```
 dotnet new webapi
 dotnet new classlib
 dotnet new mstest 
 ```
 
-#### Adicionado uma solução na raiz: 
+### Adicionado uma solução na raiz: 
 ```
 dotnet new sln
 ```
-'Backend.sln'
+'**Backend.sln**'
 
 
-#### Adicionar referência entre os domínios:
+### Adicionar referência entre os domínios:
 
 - **Infra** faz referência ao **Domain**  
 - **Api** faz referência ao **Domain** e **Infra**  
 - **Test** faz referência ao **Domain**  
 
 
+--- 
 
-## Migrations
-As Migrations são geradas a partir do projeto 'Api'.  
 
-Para que a pasta Migrations fique localizada na camada 'Infra', é preciso especificar ao executar o comando:
+# Migrations
+As Migrations são geradas a partir do projeto '**Api**'.  
+
+Para que a pasta Migrations fique localizada na camada '**Infra**', é preciso especificar ao executar o comando:
 ```
 dotnet ef migrations add <NomeDaMigration> --project ../Infra/Infra.csproj
 ```
 
-Obs: As migrations já foram geradas, mas fique a vontade para excluir e gerar novamente.
+Obs: As migrations já foram geradas, mas fique a vontade para excluir e gerar novamente. Só observe que para gerá-las novamente
+é necessário modificar os seguintes arquivos:
 
-## Data Base
-Estamos utilizando banco de dados embarcado SQLite. Logo, os dados necessários já estão disponíveis no arquivo 'DataBase.db' localizado raíz do repositório.
+```
+**Api**
+   Configurations
 
-Obs: Fique a vontade para excluir e gerar um novo banco de dados, segue o comando que deve ser executado no projeto 'Api':
+    -->  services.AddDbContext<AppDbContext>(options =>
+               options.UseInMemoryDatabase(Settings.ConnectionString()));               
 ```
-dotnet ef database update
+Altere '**UseInMemoryDatabase**' para '**UseSqlite**':  
+
+Faça a mesma coisa em:
 ```
+**Infra***
+    Context
+       AppDbContext
+
+       --> options.UseInMemoryDatabase(Settings.ConnectionString());
+```
+
 
 
 

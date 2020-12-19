@@ -4,6 +4,8 @@
 ###### API com Documentação do Swagger.  
 ###### Testes de Unidade.  
 
+**Obs: Dados Entity Framework InMemory**
+
 
 ## Início Rápido:
 

@@ -3,8 +3,11 @@
 ###### Arquitetura DDD.  
 ###### API com Documentação do Swagger.  
 ###### Testes de Unidade.  
+###### Arquivo Dockerfile pronto para publicar API no Heroku.
 
-**Obs: Dados Entity Framework InMemory**
+Obs: Dados Entity Framework InMemory
+
+---
 
 
 ## Início Rápido:

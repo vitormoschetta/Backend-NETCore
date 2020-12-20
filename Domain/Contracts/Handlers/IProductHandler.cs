@@ -6,9 +6,9 @@ namespace Domain.Contracts.Handlers
     public interface IProductHandler
     {
         // Write
-        CommandResult Create(CreateProductCommand command);
-        CommandResult Update(UpdateProductCommand command);
-        CommandResult AddPromotion(AddPromotionProductCommand command);
+        CommandResult Create(ProductCreateCommand command);
+        CommandResult Update(ProductUpdateCommand command);
+        CommandResult AddPromotion(ProductPromotionCommand command);
         CommandResult Delete(Guid id);
     }
 }

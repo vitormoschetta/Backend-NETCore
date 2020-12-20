@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Domain.Commands;
 using Domain.Contracts.Handlers;
 using Domain.Contracts.Repositories;
@@ -15,11 +14,11 @@ namespace Domain.Handlers
             _repository = repository;
         }
         
-        public CommandResult Create(CreateProductCommand command)
+        public CommandResult Create(ProductCreateCommand command)
         {
             var exist = _repository.Exists(command.Name);
             if (exist) 
-                return new CommandResult(false, "Já existe um Produto cadastrado com esse Nome. ", command);
+                return new CommandResult(false, "Já existe um Produto cadastrado com esse Nome. ", command);                
                 
             var product = new Product(command.Name, command.Price);
 
@@ -32,38 +31,38 @@ namespace Domain.Handlers
             return new CommandResult(true, "Produto cadastrado com sucesso! ", product);
         }
         
-        public CommandResult Update(UpdateProductCommand command)
+        public CommandResult Update(ProductUpdateCommand command)
         {
             var product = _repository.GetById(command.Id);     
             if (product == null) 
-                return new CommandResult(false, "Produto não encontrado na base de dados. ", command);
+                return new CommandResult(false, "Produto não encontrado na base de dados. ", null);
 
             var exist = _repository.ExistsUpdate(command.Name, command.Id);
             if (exist)
-                return new CommandResult(false, "Já existe outro Produto cadatrado com esse Nome. ", command);
+                return new CommandResult(false, "Já existe outro Produto cadatrado com esse Nome. ", null);
 
             product.Update(command.Name, command.Price);
 
             AddNotifications(product);
             if (Invalid)
-                return new CommandResult(false, GroupNotifications.Group(Notifications), command);           
+                return new CommandResult(false, GroupNotifications.Group(Notifications), null);           
 
             _repository.Update(product);
 
             return new CommandResult(true, "Produto atualizado com sucesso!. ", product);
         }
 
-        public CommandResult AddPromotion(AddPromotionProductCommand command)
+        public CommandResult AddPromotion(ProductPromotionCommand command)
         {
             var product = _repository.GetById(command.Id);     
             if (product == null) 
-                return new CommandResult(false, "Produto não encontrado na base de dados. ", command);           
+                return new CommandResult(false, "Produto não encontrado na base de dados. ", null);           
 
             product.AddPromotion(command.Price);
 
             AddNotifications(product);
             if (Invalid)
-                return new CommandResult(false, GroupNotifications.Group(Notifications), command);           
+                return new CommandResult(false, GroupNotifications.Group(Notifications), null);           
 
             _repository.Update(product);
 
@@ -74,7 +73,7 @@ namespace Domain.Handlers
         {
             var product = _repository.GetById(id);
             if (product == null)
-                return new CommandResult(false, "Produto não encontrado na base de dados. ", product);
+                return new CommandResult(false, "Produto não encontrado na base de dados. ", null);
 
             _repository.Delete(product.Id);
 

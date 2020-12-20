@@ -15,7 +15,7 @@ namespace Tests.Handlers.Product
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            var command = new AddPromotionProductCommand();
+            var command = new ProductPromotionCommand();
             command.Id = repository.GetAll().FirstOrDefault().Id;            
             command.Price = 1.5m;
 
@@ -29,7 +29,7 @@ namespace Tests.Handlers.Product
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            var command = new AddPromotionProductCommand();
+            var command = new ProductPromotionCommand();
             command.Id = repository.GetAll().FirstOrDefault().Id;            
             command.Price = 11.5m;
 

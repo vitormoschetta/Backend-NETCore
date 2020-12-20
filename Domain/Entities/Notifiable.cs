@@ -10,7 +10,7 @@ namespace Domain.Entities
         {
             _notifications = new List<string>();
         }
-
+        
         public IReadOnlyCollection<string> Notifications => _notifications;
 
         public void AddNotification(string message)

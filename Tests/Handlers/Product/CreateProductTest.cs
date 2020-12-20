@@ -15,7 +15,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            var command = new CreateProductCommand();
+            var command = new ProductCreateCommand();
             command.Name = "Product D";
             command.Price = 5.5m;
 
@@ -29,7 +29,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            var command = new CreateProductCommand();
+            var command = new ProductCreateCommand();
             command.Name = null;
             command.Price = 5.5m;
 
@@ -43,7 +43,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            var command = new CreateProductCommand();
+            var command = new ProductCreateCommand();
             command.Name = "";
             command.Price = 5.5m;
 
@@ -57,7 +57,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            var command = new CreateProductCommand();
+            var command = new ProductCreateCommand();
             command.Name = "Pro";
             command.Price = 5.5m;
 
@@ -71,7 +71,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            var command = new CreateProductCommand();
+            var command = new ProductCreateCommand();
             command.Name = "Product D";
             command.Price = -1;            
 
@@ -85,7 +85,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
             
-            var command = new CreateProductCommand();
+            var command = new ProductCreateCommand();
             command.Name = "Product A";
             command.Price = 5.5m;            
 

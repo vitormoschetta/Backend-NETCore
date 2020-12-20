@@ -22,33 +22,33 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public CommandResult Create(CreateProductCommand command)
+        public CommandResult Create(ProductCreateCommand command)
         {
-            CommandResult result = _handler.Create(command);
+            var result = _handler.Create(command);
             return result;
         }
 
         [HttpPut("{id}")]
-        public CommandResult Update(Guid id, UpdateProductCommand command)
+        public CommandResult Update(Guid id, ProductUpdateCommand command)
         {
             if (id != command.Id)
-                return new CommandResult(false, "Id inválido. ", command);
+                return new CommandResult(false, "Id inválido. ", null);
 
-            CommandResult result = _handler.Update(command);
+            var result = _handler.Update(command);
             return result;
         }
 
         [HttpPut("AddPromotion/{id}")]
-        public CommandResult AddPromotion(Guid id, AddPromotionProductCommand command)
+        public CommandResult AddPromotion(Guid id, ProductPromotionCommand command)
         {
-            CommandResult result = _handler.AddPromotion(command);
+            var result = _handler.AddPromotion(command);
             return result;
         }
 
         [HttpDelete("{id}")]
         public CommandResult Delete(Guid id)
         {
-            CommandResult result = _handler.Delete(id);
+            var result = _handler.Delete(id);
             return result;
         }
 

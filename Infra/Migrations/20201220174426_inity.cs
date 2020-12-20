@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infra.Migrations
 {
-    public partial class product_11122020 : Migration
+    public partial class inity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

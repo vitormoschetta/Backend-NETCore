@@ -1,18 +1,9 @@
-using System;
 using Api.Configurations;
-using Domain;
-using Domain.Contracts.Handlers;
-using Domain.Contracts.Repositories;
-using Domain.Handlers;
-using Infra.Context;
-using Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 
 namespace api
 {

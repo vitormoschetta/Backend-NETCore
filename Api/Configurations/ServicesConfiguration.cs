@@ -15,8 +15,13 @@ namespace Api.Configurations
     {
         public static void ConfigureDbContext(this IServiceCollection services)
         {
+            // services.AddDbContext<AppDbContext>(options =>
+            //    options.UseInMemoryDatabase(Settings.ConnectionString()));
+
+            //Use SQLite            
             services.AddDbContext<AppDbContext>(options =>
-               options.UseInMemoryDatabase(Settings.ConnectionString()));
+               options.UseSqlite(Settings.ConnectionString()));
+            
         }  
 
         public static void ConfigureRepositories(this IServiceCollection services)

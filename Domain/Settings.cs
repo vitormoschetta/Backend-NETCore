@@ -4,11 +4,9 @@ namespace Domain
     {
         public static string ConnectionString()
         {
-            //Aqui vai a String de Conexão com o Banco de Dados
-            return "DataSource=../DataBase.db";
-
-            // Como estamos usando uma base de dados em Memoria, estamos apenas dando um   
-            // nome (DataBase) a essa base.
+            // Aqui vai a String de Conexão com o Banco de Dados
+            // No nosso caso estamos usando SQLite que vai ser gerado fora dos projetos, na pasta raiz
+            return "DataSource=../DataBase.sqlite";         
         }
     }
 }

@@ -89,16 +89,17 @@ dotnet new sln
 --- 
 
 
-# Migrations
-As Migrations são geradas a partir do projeto '**Api**'.  
+# Base de Dados
 
-Para que a pasta Migrations fique localizada na camada '**Infra**', é preciso especificar ao executar o comando:
-```
-dotnet ef migrations add <NomeDaMigration> --project ../Infra/Infra.csproj
-```
+## InMemroy
 
-Obs: As migrations já foram geradas, mas fique a vontade para excluir e gerar novamente. Só observe que para gerá-las novamente
-é necessário modificar os seguintes arquivos:
+Estamos utilizando dados em memória (Entity Framework Core InMemory). Você pode aproveitar todo o poder do Entity Framework e conectar a sua
+base de dados preferida.
+
+
+## SQLite
+
+Neste Projeto o acesso ao SQLite já está configurado. Basta alterar / comentar o código abaixo referenciado:
 
 ```
 **Api**
@@ -117,6 +118,27 @@ Faça a mesma coisa em:
 
        --> options.UseInMemoryDatabase(Settings.ConnectionString());
 ```
+
+
+### Migrations 
+
+As Migrations são geradas a partir do projeto '**Api**'.  
+
+Para que a pasta Migrations fique localizada na camada '**Infra**', é preciso especificar ao executar o comando:
+```
+dotnet ef migrations add <NomeDaMigration> --project ../Infra/Infra.csproj
+```
+
+Para gerar a base de dados use o seguinte comando:
+```
+dotnet ef database update
+```
+
+
+Obs: Se você trocar as configurações para usar o **SQLite**, saiba que tanto as **Migrations** quanto a base de dados **já foram Gerados**.
+Mas fique a vontade para excluir e gerar novamente. 
+
+
 
 
 

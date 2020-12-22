@@ -1,9 +1,12 @@
 # Backend-NETCore
+###### [API](https://backend-netcore-api.azurewebsites.net/index.html) hospedada no [Azure](https://azure.microsoft.com/pt-br/)
+
+
 ###### Estrutura backend .NET Core simples e ao mesmo tempo robusta.  
 ###### Arquitetura DDD.  
 ###### API com Documentação do Swagger.  
 ###### Testes de Unidade.  
-###### Arquivo Dockerfile pronto para publicar API no Heroku.
+###### Arquivo Dockerfile pronto para publicar API no Azure
 
 
 ---

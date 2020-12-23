@@ -59,6 +59,7 @@ namespace Infra.Repositories
         {
             return _context.Product
                 .AsNoTracking()
+                .OrderBy(x => x.Name)
                 .ToList();
         }
 

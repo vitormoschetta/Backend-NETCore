@@ -15,7 +15,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            Guid id = repository.GetAll().FirstOrDefault().Id;
+            string id = repository.GetAll().FirstOrDefault().Id;
             var result = handler.Delete(id);
             Assert.True(result.Success, result.Message);
         }
@@ -27,7 +27,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            Guid id = Guid.NewGuid();
+            string id = Guid.NewGuid().ToString();
             var result = handler.Delete(id);
             Assert.False(result.Success, result.Message);
         }

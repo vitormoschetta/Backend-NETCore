@@ -9,6 +9,6 @@ namespace Domain.Contracts.Handlers
         CommandResult Create(ProductCreateCommand command);
         CommandResult Update(ProductUpdateCommand command);
         CommandResult AddPromotion(ProductPromotionCommand command);
-        CommandResult Delete(Guid id);
+        CommandResult Delete(string id);
     }
 }

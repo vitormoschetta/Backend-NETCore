@@ -29,7 +29,7 @@ namespace Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public CommandResult Update(Guid id, ProductUpdateCommand command)
+        public CommandResult Update(string id, ProductUpdateCommand command)
         {
             if (id != command.Id)
                 return new CommandResult(false, "Id inválido. ", null);
@@ -39,14 +39,14 @@ namespace Api.Controllers
         }
 
         [HttpPut("AddPromotion/{id}")]
-        public CommandResult AddPromotion(Guid id, ProductPromotionCommand command)
+        public CommandResult AddPromotion(string id, ProductPromotionCommand command)
         {
             var result = _handler.AddPromotion(command);
             return result;
         }
 
         [HttpDelete("{id}")]
-        public CommandResult Delete(Guid id)
+        public CommandResult Delete(string id)
         {
             var result = _handler.Delete(id);
             return result;
@@ -61,7 +61,7 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Product> GetById(Guid id)
+        public ActionResult<Product> GetById(string id)
         {
             Product product = _repository.GetById(id);
             return Ok(product);

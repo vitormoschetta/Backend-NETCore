@@ -1,15 +1,15 @@
 using System;
 using System.Linq;
 using Domain.Handlers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Mock;
+using Xunit;
 
 namespace Tests.Handlers
 {
-    [TestClass]
+    
     public class DeleteProductTest
     {
-        [TestMethod]
+       [Fact]
         public void DeleteProductHandler_valid()
         {
             var repository = new FakeProductRepository();
@@ -17,11 +17,11 @@ namespace Tests.Handlers
 
             Guid id = repository.GetAll().FirstOrDefault().Id;
             var result = handler.Delete(id);
-            Assert.IsTrue(result.Success, result.Message);
+            Assert.True(result.Success, result.Message);
         }
 
 
-        [TestMethod]
+       [Fact]
         public void DeleteProductHandler_NotExists_Invalid()
         {
             var repository = new FakeProductRepository();
@@ -29,7 +29,7 @@ namespace Tests.Handlers
 
             Guid id = Guid.NewGuid();
             var result = handler.Delete(id);
-            Assert.IsFalse(result.Success, result.Message);
+            Assert.False(result.Success, result.Message);
         }
     }
 }

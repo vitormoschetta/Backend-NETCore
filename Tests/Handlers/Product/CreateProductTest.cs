@@ -1,15 +1,15 @@
 using Domain.Commands;
 using Domain.Handlers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Mock;
+using Xunit;
 
 namespace Tests.Handlers
 {
-    [TestClass]
+    
     public class CreateProductTest
     {
 
-        [TestMethod]
+        [Fact]
         public void AddProductHandler_valid()
         {
             var repository = new FakeProductRepository();
@@ -20,10 +20,10 @@ namespace Tests.Handlers
             command.Price = 5.5m;
 
             var result = handler.Create(command);
-            Assert.IsTrue(result.Success, result.Message);
+            Assert.True(result.Success, result.Message);
         }
 
-        [TestMethod]
+        [Fact]
         public void AddProductHandler_Null_Name_Invalid()
         {
             var repository = new FakeProductRepository();
@@ -34,10 +34,10 @@ namespace Tests.Handlers
             command.Price = 5.5m;
 
             var result = handler.Create(command);
-            Assert.IsFalse(result.Success, result.Message);
+            Assert.False(result.Success, result.Message);
         }
 
-        [TestMethod]
+        [Fact]
         public void AddProductHandler_Empty_Name_Invalid()
         {
             var repository = new FakeProductRepository();
@@ -48,10 +48,10 @@ namespace Tests.Handlers
             command.Price = 5.5m;
 
             var result = handler.Create(command);
-            Assert.IsFalse(result.Success, result.Message);
+            Assert.False(result.Success, result.Message);
         }
 
-        [TestMethod]
+        [Fact]
         public void AddProductHandler_Lenght_Name_4_Invalid()
         {
             var repository = new FakeProductRepository();
@@ -62,10 +62,10 @@ namespace Tests.Handlers
             command.Price = 5.5m;
 
             var result = handler.Create(command);
-            Assert.IsFalse(result.Success, result.Message);
+            Assert.False(result.Success, result.Message);
         }
 
-        [TestMethod]
+        [Fact]
         public void AddProductHandler_Negative_Price_Invalid()
         {
             var repository = new FakeProductRepository();
@@ -76,10 +76,10 @@ namespace Tests.Handlers
             command.Price = -1;            
 
             var result = handler.Create(command);
-            Assert.IsFalse(result.Success, result.Message);
+            Assert.False(result.Success, result.Message);
         }
 
-        [TestMethod]
+        [Fact]
         public void AddProductHandler_Exists_Name_Invalid()
         {
             var repository = new FakeProductRepository();
@@ -90,7 +90,7 @@ namespace Tests.Handlers
             command.Price = 5.5m;            
 
             var result = handler.Create(command);
-            Assert.IsFalse(result.Success, result.Message);
+            Assert.False(result.Success, result.Message);
         }
 
     }

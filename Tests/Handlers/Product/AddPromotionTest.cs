@@ -1,15 +1,14 @@
 using System.Linq;
 using Domain.Commands;
 using Domain.Handlers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Mock;
+using Xunit;
 
 namespace Tests.Handlers.Product
-{
-    [TestClass]
+{   
     public class AddPromotionTest
     {
-        [TestMethod]
+       [Fact]
         public void AddPromotionHandler_valid()
         {
             var repository = new FakeProductRepository();
@@ -20,10 +19,10 @@ namespace Tests.Handlers.Product
             command.Price = 1.5m;
 
             var result = handler.AddPromotion(command);
-            Assert.IsTrue(result.Success, result.Message);
+            Assert.True(result.Success, result.Message);
         }
 
-        [TestMethod]
+        [Fact]
         public void AddPromotionHandler_price_invalid()
         {
             var repository = new FakeProductRepository();
@@ -34,7 +33,7 @@ namespace Tests.Handlers.Product
             command.Price = 11.5m;
 
             var result = handler.AddPromotion(command);
-            Assert.IsFalse(result.Success, result.Message);
+            Assert.False(result.Success, result.Message);
         }
     }
 }

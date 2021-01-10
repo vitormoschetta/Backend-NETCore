@@ -1,15 +1,15 @@
 using System.Linq;
 using Domain.Commands;
 using Domain.Handlers;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Mock;
+using Xunit;
 
 namespace Tests.Handlers
 {
-    [TestClass]
+    
     public class UpdateProductTest
     {
-        [TestMethod]
+       [Fact]
         public void UpdateProductHandler_valid()
         {
             var repository = new FakeProductRepository();
@@ -21,10 +21,10 @@ namespace Tests.Handlers
             command.Price = 9.5m;
 
             var result = handler.Update(command);
-            Assert.IsTrue(result.Success, result.Message);
+            Assert.True(result.Success, result.Message);
         }
 
-        [TestMethod]
+       [Fact]
         public void UpdateProductHandler_Exists_Name_Invalid()
         {
             var repository = new FakeProductRepository();
@@ -36,10 +36,10 @@ namespace Tests.Handlers
             command.Price = 5.5m;
 
             var result = handler.Update(command);
-            Assert.IsFalse(result.Success, result.Message);
+            Assert.False(result.Success, result.Message);
         }
 
-        [TestMethod]
+       [Fact]
         public void UpdateProductHandler_Null_Name_Invalid()
         {
             var repository = new FakeProductRepository();
@@ -51,7 +51,7 @@ namespace Tests.Handlers
             command.Price = 5.5m;
 
             var result = handler.Update(command);
-            Assert.IsFalse(result.Success, result.Message);
+            Assert.False(result.Success, result.Message);
         }
     }
 }

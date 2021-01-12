@@ -1,5 +1,6 @@
 # Backend-NETCore
-###### [API](https://backend-netcore-api.azurewebsites.net/index.html) hospedada no [Azure](https://azure.microsoft.com/pt-br/)
+###### API hospedada no [Heroku](https://azure.microsoft.com/pt-br/)
+<https://backend-netcore.herokuapp.com/index.html>
 
 
 ###### Estrutura backend .NET Core simples e ao mesmo tempo robusta

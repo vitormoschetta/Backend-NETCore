@@ -1,6 +1,6 @@
 # Backend-NETCore
-###### API hospedada no [Heroku](https://azure.microsoft.com/pt-br/)
-<https://backend-netcore.herokuapp.com/index.html>
+###### API hospedada na Amazon AWS
+<http://aspnetcore-dev.eba-idh62xks.us-east-1.elasticbeanstalk.com/index.html>
 
 
 ###### Estrutura backend .NET Core simples e ao mesmo tempo robusta

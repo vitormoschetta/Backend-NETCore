@@ -1,6 +1,43 @@
 # Backend-NETCore
 
-# Início Rápido:
+## Início Rápido:
+
+Podemos executar este aplicativo rapidamente de duas formas:
+
+1. **Com Docker**
+
+Não existe forma mais simples de executar qualquer aplicação, em qualquer ambiente.
+
+Se ainda não possui o Docker instalado segue o link:
+
+<https://www.docker.com/products/docker-desktop/>
+
+<br>
+
+Na raiz do projeto executar o comando docker:
+```
+docker-compose up -d
+```
+
+<br>
+
+Pode demorar alguns minutos, pois se você ainda não tiver as imagens do SDK .NET Core 3.1 na máquina, o Docker tratará de fazer o download da imagem.
+
+Ao terminar o processo esta aplicação estará disponivel localmente na seguinte url:
+
+<http://localhost:5000/index.html>
+
+
+
+<br>
+<br>
+
+2. **Com SDK .NET Core**
+
+
+
+
+
 
 Se ainda não possui o .NET Core SDK instalado, segue o link de suporte a instalação:   
 [link](https://docs.microsoft.com/pt-br/dotnet/core/install/windows?tabs=netcore31)  

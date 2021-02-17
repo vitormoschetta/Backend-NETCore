@@ -80,18 +80,18 @@ https://localhost:5001/index.html
 
 Nosso projeto de backend está dividido em três partes principais, mais a camada de testes:
 
-###### WebApi:
+###### dotnet new webai
 ```
 Api
 ```
 
-###### Classlib:
+###### dotnet new classlib
 ```
 Domain
 Infra
 ```
 
-###### Mstest:
+###### dotnet new mstest
 ```
 Tests
 ```

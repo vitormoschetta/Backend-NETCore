@@ -76,7 +76,9 @@ https://localhost:5001/index.html
 ---
 
 
-# Tipos de projetos utilizados:
+# Arquitetura DDD
+
+Nosso projeto de backend está dividido em três partes principais, mais a camada de testes:
 
 ###### WebApi:
 ```

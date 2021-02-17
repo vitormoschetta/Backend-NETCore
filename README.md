@@ -1,6 +1,3 @@
-Estrutura simples, clean code.
-
-
 ## Início Rápido:
 
 Podemos executar este aplicativo rapidamente de duas formas:

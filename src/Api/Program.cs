@@ -23,6 +23,7 @@ namespace api
 
                 try
                 {
+                    InitializeData.ApplyMigrations(services);
                     InitializeData.InitializeProducts(services);
                 }
                 catch 

@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infra.Migrations
 {
@@ -11,7 +10,7 @@ namespace Infra.Migrations
                 name: "Product",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
+                    Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(type: "varchar(120)", maxLength: 120, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(10, 2)", nullable: false)
                 },

@@ -113,33 +113,7 @@ Tests
 
 # Base de Dados
 
-## InMemroy
-
-Estamos utilizando dados em memória (Entity Framework Core InMemory). Você pode aproveitar todo o poder do Entity Framework e conectar a sua
-base de dados preferida.
-
-
-## SQLite
-
-Neste Projeto o acesso ao SQLite já está configurado. Basta alterar / comentar o código abaixo referenciado:
-
-```
-**Api**
-   Configurations
-
-    -->  services.AddDbContext<AppDbContext>(options =>
-               options.UseInMemoryDatabase(Settings.ConnectionString()));               
-```
-Altere '**UseInMemoryDatabase**' para '**UseSqlite**':  
-
-Faça a mesma coisa em:
-```
-**Infra***
-    Context
-       AppDbContext
-
-       --> options.UseInMemoryDatabase(Settings.ConnectionString());
-```
+Neste projeto estamos utilizando o banco de dados embarcado SQLite.
 
 
 ### Migrations 
@@ -156,10 +130,9 @@ Para gerar a base de dados use o seguinte comando:
 dotnet ef database update
 ```
 
+<br>
 
-Obs: Se você trocar as configurações para usar o **SQLite**, saiba que tanto as **Migrations** quanto a base de dados **já foram Gerados**.
-Mas fique a vontade para excluir e gerar novamente. 
-
+**Detalhe**: Se for utilizar o docker para instanciar um container da aplicação, saiba que a criação e inicialização do banco de dados já está configurada.
 
 
 

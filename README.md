@@ -29,6 +29,7 @@ Ao terminar o processo esta aplicação estará disponivel localmente na seguint
 
 
 
+
 <br>
 <br>
 
@@ -40,9 +41,10 @@ Se ainda não possui o .NET Core SDK instalado, segue o link:
 
 <https://docs.microsoft.com/pt-br/dotnet/core/install/windows?tabs=netcore31>
 
+
 <br>
 
-Com o SDK .NET Core instalado podemos executar os seguinte comandos (a partir do diretório src/Api/):
+Com o SDK .NET Core instalado podemos executar os seguinte comandos (a partir do diretório "_src/Api/_"):
 
 ### Restaurar pacotes
 ```

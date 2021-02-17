@@ -35,16 +35,16 @@ Ao terminar o processo esta aplicação estará disponivel localmente na seguint
 
 ### 2. Com SDK .NET Core
 
-Se não quiser usar o Docker vocẽ pode optar por executar no próprio _host_, mas precisará do SDK .NET Core 3.1 ou mais atual.
+Se não quiser usar o Docker vocẽ pode optar por executar no próprio _host_, mas precisará do SDK .NET Core 3.1 ou superior.
 
 Se ainda não possui o .NET Core SDK instalado, segue o link:   
 
-<https://docs.microsoft.com/pt-br/dotnet/core/install/windows?tabs=netcore31>
+<https://dotnet.microsoft.com/download>
 
 
 <br>
 
-Com o SDK .NET Core instalado podemos executar os seguinte comandos (a partir do diretório "_src/Api/_"):
+Com o SDK .NET Core instalado podemos executar os seguinte comandos, a partir do diretório "_src/Api/_":
 
 ### Restaurar pacotes
 ```

@@ -34,35 +34,36 @@ Ao terminar o processo esta aplicação estará disponivel localmente na seguint
 
 2. **Com SDK .NET Core**
 
+Se não quiser usar o Docker vocẽ pode optar por executar no próprio _host_, mas precisará do SDK .NET Core 3.1 ou mais atual.
 
+Se ainda não possui o .NET Core SDK instalado, segue o link:   
 
-
-
-
-Se ainda não possui o .NET Core SDK instalado, segue o link de suporte a instalação:   
 [link](https://docs.microsoft.com/pt-br/dotnet/core/install/windows?tabs=netcore31)  
 
-Obs: instale a versão 3.1
+<br>
 
+Com o SDK .NET Core instalado podemos executar os seguinte comandos (a partir do diretório src/Api/):
 
-Seguimos com comandos CLI utilizados:
-
-### Restaurar pacotes:
+### Restaurar pacotes
 ```
 dotnet restore
 ```
+<br>
 
 ### Execute a Aplicação:
-Na pasta '**Api**' execute o comando CLI:
 ```
 dotnet run
 ```
 
-Se tudo ocorreu bem, a seguinte URL ficará disponível:   
-http://localhost:5000
+<br>
 
-Para acessar a documentação da API:  
+Se tudo ocorreu como esperávamos, a seguinte URL ficará disponível:   
+
 http://localhost:5000/index.html
+
+ou:
+
+https://localhost:5001/index.html
 
 
 

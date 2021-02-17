@@ -4,7 +4,7 @@
 
 Podemos executar este aplicativo rapidamente de duas formas:
 
-1. **Com Docker**
+### 1. Com Docker
 
 Não existe forma mais simples de executar qualquer aplicação, em qualquer ambiente.
 
@@ -32,7 +32,7 @@ Ao terminar o processo esta aplicação estará disponivel localmente na seguint
 <br>
 <br>
 
-2. **Com SDK .NET Core**
+### 2. Com SDK .NET Core
 
 Se não quiser usar o Docker vocẽ pode optar por executar no próprio _host_, mas precisará do SDK .NET Core 3.1 ou mais atual.
 

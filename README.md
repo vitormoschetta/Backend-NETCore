@@ -21,7 +21,7 @@ docker-compose up -d
 
 <br>
 
-Pode demorar alguns minutos, pois se você ainda não tiver as imagens do SDK .NET Core 3.1 na máquina, o Docker tratará de fazer o download da imagem.
+Pode demorar alguns minutos, pois se você ainda não tiver as imagens do SDK .NET Core 3.1 na máquina, o Docker tratará de fazer o download.
 
 Ao terminar o processo esta aplicação estará disponivel localmente na seguinte url:
 
@@ -38,7 +38,7 @@ Se não quiser usar o Docker vocẽ pode optar por executar no próprio _host_, 
 
 Se ainda não possui o .NET Core SDK instalado, segue o link:   
 
-[link](https://docs.microsoft.com/pt-br/dotnet/core/install/windows?tabs=netcore31)  
+<https://docs.microsoft.com/pt-br/dotnet/core/install/windows?tabs=netcore31>
 
 <br>
 

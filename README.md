@@ -1,4 +1,5 @@
-# Backend-NETCore
+Estrutura simples, clean code.
+
 
 ## Início Rápido:
 

@@ -44,7 +44,7 @@ Se ainda não possui o .NET Core SDK instalado, segue o link:
 
 <br>
 
-Com o SDK .NET Core instalado podemos executar os seguinte comandos, a partir do diretório "_src/Api/_":
+Com o SDK .NET Core instalado podemos executar os seguinte comandos, a partir do diretório **_src/Api/_**:
 
 ### Restaurar pacotes
 ```

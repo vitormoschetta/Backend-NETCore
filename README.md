@@ -118,9 +118,9 @@ Neste projeto estamos utilizando o banco de dados embarcado SQLite.
 
 ### Migrations 
 
-As Migrations são geradas a partir do projeto '**Api**'.  
+As Migrations são geradas a partir do diretório **src/Api/**.  
 
-Para que a pasta Migrations fique localizada na camada '**Infra**', é preciso especificar ao executar o comando:
+Para que a pasta Migrations fique localizada na camada '**Infra** (seria o correto)', é preciso especificar executando o seguinte comando:
 ```
 dotnet ef migrations add <NomeDaMigration> --project ../Infra/Infra.csproj
 ```

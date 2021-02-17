@@ -96,25 +96,9 @@ Infra
 Tests
 ```
 
+<br>
 
----
-
-
-# Comandos CLI usados na criação dos projetos:
-```
-dotnet new webapi
-dotnet new classlib
-dotnet new mstest 
-```
-
-### Adicionado uma solução na raiz: 
-```
-dotnet new sln
-```
-'**Backend.sln**'
-
-
-### Adicionar referência entre os domínios:
+### Referências entre as camadas
 
 - **Infra** faz referência ao **Domain**  
 - **Api** faz referência ao **Domain** e **Infra**  

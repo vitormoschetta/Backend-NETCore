@@ -1,17 +1,4 @@
 # Backend-NETCore
-###### API hospedada na Amazon AWS
-<http://aspnetcore-dev.eba-idh62xks.us-east-1.elasticbeanstalk.com/index.html>
-
-
-###### Estrutura backend .NET Core simples e ao mesmo tempo robusta
-###### Arquitetura DDD 
-###### API com Documentação do Swagger
-###### Testes de Unidade
-###### Arquivo Dockerfile pronto para publicar API no Azure
-
-
----
-
 
 # Início Rápido:
 

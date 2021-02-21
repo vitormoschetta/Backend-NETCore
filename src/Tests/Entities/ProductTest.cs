@@ -16,7 +16,7 @@ namespace Tests.Entities
         public void Product_Empty_Name_Invalid()
         {
             var product = new Product("", 5.95m);
-            Assert.False(product.Invalid, "Nome do produto é de preenchimento obrigatório. ");
+            Assert.True(product.Invalid, "Nome do produto é de preenchimento obrigatório. ");
         }
 
         [Fact]

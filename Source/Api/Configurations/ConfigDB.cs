@@ -25,8 +25,8 @@ namespace Api.Configurations
                 options.UseSqlite(connectionString));
 
 
-            // Iniciliza classe de configuração da camada Domain
-            var appSettings = new AppSettings(connectionString);
+            // Passa string de conexao para a camada de dominio, de onde a Infra irá recuperar.
+            new AppSettings(connectionString);
         }
         
     }

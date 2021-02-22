@@ -24,7 +24,7 @@ namespace Domain.Handlers
 
             AddNotifications(product);
             if (Invalid)
-                return new CommandResult(false, GroupNotifications.Group(Notifications), command);
+                return new CommandResult(false, string.Join(". ", Notifications));
 
             _repository.Create(product);
 
@@ -45,7 +45,7 @@ namespace Domain.Handlers
 
             AddNotifications(product);
             if (Invalid)
-                return new CommandResult(false, GroupNotifications.Group(Notifications), null);           
+                return new CommandResult(false, string.Join(". ", Notifications));           
 
             _repository.Update(product);
 
@@ -62,7 +62,7 @@ namespace Domain.Handlers
 
             AddNotifications(product);
             if (Invalid)
-                return new CommandResult(false, GroupNotifications.Group(Notifications), null);           
+                return new CommandResult(false, string.Join(". ", Notifications));           
 
             _repository.Update(product);
 

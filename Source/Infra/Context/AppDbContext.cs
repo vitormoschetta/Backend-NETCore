@@ -13,9 +13,7 @@ namespace Infra.Context
         public DbSet<Product> Product { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            // options.UseInMemoryDatabase(Settings.ConnectionString());
-            
+        {                        
             options.UseSqlite(AppSettings.ConnectionString);
         }
 

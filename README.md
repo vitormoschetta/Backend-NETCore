@@ -42,7 +42,7 @@ Se ainda não possui o .NET Core SDK instalado, segue o link:
 
 <br>
 
-Com o SDK .NET Core instalado podemos executar os seguinte comandos, a partir do diretório **_src/Api/_**:
+Com o SDK .NET Core instalado podemos executar os seguinte comandos, a partir do diretório **_Source/Api/_**:
 
 ### Restaurar pacotes
 ```
@@ -116,7 +116,7 @@ Neste projeto estamos utilizando o banco de dados embarcado SQLite.
 
 ### Migrations 
 
-As Migrations são geradas a partir do diretório **src/Api/**.  
+As Migrations são geradas a partir do diretório **Source/Api/**.  
 
 Para que a pasta Migrations fique localizada na camada '**Infra** (seria o correto)', é preciso especificar executando o seguinte comando:
 ```

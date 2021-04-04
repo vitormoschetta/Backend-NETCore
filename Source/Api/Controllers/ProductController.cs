@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Api.DTOs;
 using Domain;
 using Domain.Commands;
 using Domain.Contracts.Handlers;
@@ -54,9 +56,12 @@ namespace Api.Controllers
 
 
         [HttpGet]
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<ProductDTO> GetAll()
         {
-            IEnumerable<Product> products = _repository.GetAll();
+            IEnumerable<ProductDTO> products = from p in _repository.GetAll()
+                                               select new ProductDTO() 
+                                                { Id = p.Id, Name = p.Name, Price = p.Price };
+
             return products;
         }
 

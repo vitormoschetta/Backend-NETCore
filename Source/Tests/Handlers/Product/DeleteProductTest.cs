@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Domain.Commands;
 using Domain.Handlers;
 using Tests.Mock;
 using Xunit;
@@ -16,7 +17,11 @@ namespace Tests.Handlers
             var handler = new ProductHandler(repository);
 
             string id = repository.GetAll().FirstOrDefault().Id;
-            var result = handler.Delete(id);
+
+            var command = new ProductDeleteCommand();
+            command.Id = id;
+
+            var result = handler.Handle(command);
             Assert.True(result.Success, result.Message);
         }
 
@@ -27,8 +32,12 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductHandler(repository);
 
-            string id = Guid.NewGuid().ToString();
-            var result = handler.Delete(id);
+            string id = repository.GetAll().FirstOrDefault().Id;
+
+            var command = new ProductDeleteCommand();
+            command.Id = id;
+            
+            var result = handler.Handle(command);
             Assert.False(result.Success, result.Message);
         }
     }

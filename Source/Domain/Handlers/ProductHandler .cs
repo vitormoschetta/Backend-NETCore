@@ -14,7 +14,7 @@ namespace Domain.Handlers
             _repository = repository;
         }
         
-        public CommandResult Create(ProductCreateCommand command)
+        public CommandResult Handle(ProductCreateCommand command)
         {
             var exist = _repository.Exists(command.Name);
             if (exist) 
@@ -31,7 +31,7 @@ namespace Domain.Handlers
             return new CommandResult(true, "Produto cadastrado com sucesso! ", product);
         }
         
-        public CommandResult Update(ProductUpdateCommand command)
+        public CommandResult Handle(ProductUpdateCommand command)
         {
             var product = _repository.GetById(command.Id);     
             if (product == null) 
@@ -52,7 +52,7 @@ namespace Domain.Handlers
             return new CommandResult(true, "Produto atualizado com sucesso!. ", product);
         }
 
-        public CommandResult AddPromotion(ProductPromotionCommand command)
+        public CommandResult Handle(ProductPromotionCommand command)
         {
             var product = _repository.GetById(command.Id);     
             if (product == null) 
@@ -69,9 +69,9 @@ namespace Domain.Handlers
             return new CommandResult(true, "Preço do Produto atualizado com sucesso! ", product);
         }
 
-        public CommandResult Delete(string id)
+        public CommandResult Handle(ProductDeleteCommand command)
         {
-            var product = _repository.GetById(id);
+            var product = _repository.GetById(command.Id);
             if (product == null)
                 return new CommandResult(false, "Produto não encontrado na base de dados. ", null);
 

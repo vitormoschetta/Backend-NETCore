@@ -18,7 +18,7 @@ namespace Tests.Handlers.Product
             command.Id = repository.GetAll().FirstOrDefault().Id;            
             command.Price = 1.5m;
 
-            var result = handler.AddPromotion(command);
+            var result = handler.Handle(command);
             Assert.True(result.Success, result.Message);
         }
 
@@ -32,7 +32,7 @@ namespace Tests.Handlers.Product
             command.Id = repository.GetAll().FirstOrDefault().Id;            
             command.Price = 11.5m;
 
-            var result = handler.AddPromotion(command);
+            var result = handler.Handle(command);
             Assert.False(result.Success, result.Message);
         }
     }

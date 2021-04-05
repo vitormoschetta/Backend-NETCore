@@ -20,7 +20,7 @@ namespace Tests.Handlers
             command.Name = "Product X";
             command.Price = 9.5m;
 
-            var result = handler.Update(command);
+            var result = handler.Handle(command);
             Assert.True(result.Success, result.Message);
         }
 
@@ -35,7 +35,7 @@ namespace Tests.Handlers
             command.Name = "Product C";
             command.Price = 5.5m;
 
-            var result = handler.Update(command);
+            var result = handler.Handle(command);
             Assert.False(result.Success, result.Message);
         }
 
@@ -50,7 +50,7 @@ namespace Tests.Handlers
             command.Name = null;
             command.Price = 5.5m;
 
-            var result = handler.Update(command);
+            var result = handler.Handle(command);
             Assert.False(result.Success, result.Message);
         }
     }

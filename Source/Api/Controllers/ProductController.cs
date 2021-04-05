@@ -26,7 +26,7 @@ namespace Api.Controllers
         [HttpPost]
         public CommandResult Create(ProductCreateCommand command)
         {
-            var result = _handler.Create(command);
+            var result = _handler.Handle(command);
             return result;
         }
 
@@ -36,21 +36,21 @@ namespace Api.Controllers
             if (id != command.Id)
                 return new CommandResult(false, "Id inválido. ", null);
 
-            var result = _handler.Update(command);
+            var result = _handler.Handle(command);
             return result;
         }
 
         [HttpPut("AddPromotion/{id}")]
         public CommandResult AddPromotion(string id, ProductPromotionCommand command)
         {
-            var result = _handler.AddPromotion(command);
+            var result = _handler.Handle(command);
             return result;
         }
 
         [HttpDelete("{id}")]
-        public CommandResult Delete(string id)
+        public CommandResult Delete(ProductDeleteCommand command)
         {
-            var result = _handler.Delete(id);
+            var result = _handler.Handle(command);
             return result;
         }
 

@@ -12,7 +12,8 @@ namespace Infra.Migrations
                 {
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(type: "varchar(120)", maxLength: 120, nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(10, 2)", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(10, 2)", nullable: false),
+                    Group = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

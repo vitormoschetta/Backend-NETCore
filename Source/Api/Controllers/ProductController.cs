@@ -60,7 +60,7 @@ namespace Api.Controllers
         {
             IEnumerable<ProductDTO> products = from p in _repository.GetAll()
                                                select new ProductDTO() 
-                                                { Id = p.Id, Name = p.Name, Price = p.Price };
+                                               { Id = p.Id, Name = p.Name, Price = p.Price, Group = p.Group };
 
             return products;
         }

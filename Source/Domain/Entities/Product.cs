@@ -1,4 +1,5 @@
 using System;
+using Domain.Enums;
 
 namespace Domain.Entities
 {
@@ -12,11 +13,12 @@ namespace Domain.Entities
 
             Validate();
         }
-        public Product(string id, string name, decimal price)
+        public Product(string id, string name, decimal price, EGroup group = EGroup.GroupA)
         {
             Id = id;
             Name = name;
             Price = price;
+            Group = group;
 
             Validate();
         }
@@ -24,6 +26,7 @@ namespace Domain.Entities
         public string Id { get; private set; }
         public string Name { get; private set; }
         public decimal Price { get; private set; }
+        public EGroup Group { get; private set; }   
 
 
         public void Update(string name, decimal price)

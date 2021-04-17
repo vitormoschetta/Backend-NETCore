@@ -38,7 +38,7 @@ namespace Tests.Handlers
             command.Id = id;
             
             var result = handler.Handle(command);
-            Assert.False(result.Success, result.Message);
+            Assert.True(result.Success, result.Message);
         }
     }
 }

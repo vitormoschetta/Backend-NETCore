@@ -5,13 +5,14 @@ volumes:
 
 services:
   app:
-    container_name: app
-    image: netcoreapp
+    container_name: backend-netcore
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5000:80" 
-    volumes:
-      - sqlite:/Data
+      - "6050:6050" 
+    expose:
+      - 6050
+    volumes:      
+      - sqlite:/Data      
 

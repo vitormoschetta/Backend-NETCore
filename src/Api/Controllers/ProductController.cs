@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using Api.DTOs;
-using Domain;
 using Domain.Commands;
 using Domain.Contracts.Handlers;
 using Domain.Contracts.Repositories;
@@ -26,8 +22,8 @@ namespace Api.Controllers
         [HttpPost]
         public CommandResult Create(ProductCreateCommand command)
         {
-            var result = _handler.Handle(command);
-            return result;
+            return _handler.Handle(command);
+
         }
 
         [HttpPut("{id}")]
@@ -36,48 +32,39 @@ namespace Api.Controllers
             if (id != command.Id)
                 return new CommandResult(false, "Id inválido. ", null);
 
-            var result = _handler.Handle(command);
-            return result;
+            return _handler.Handle(command);
         }
 
         [HttpPut("AddPromotion/{id}")]
         public CommandResult AddPromotion(string id, ProductPromotionCommand command)
         {
-            var result = _handler.Handle(command);
-            return result;
+            return _handler.Handle(command);
         }
 
         [HttpDelete("{id}")]
         public CommandResult Delete(ProductDeleteCommand command)
         {
-            var result = _handler.Handle(command);
-            return result;
+            return _handler.Handle(command);
         }
 
 
         [HttpGet]
-        public IEnumerable<ProductDTO> GetAll()
+        public IEnumerable<Product> GetAll()
         {
-            IEnumerable<ProductDTO> products = from p in _repository.GetAll()
-                                               select new ProductDTO() 
-                                               { Id = p.Id, Name = p.Name, Price = p.Price, Group = p.Group };
-
-            return products;
+            return _repository.GetAll();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Product> GetById(string id)
+        public Product GetById(string id)
         {
-            Product product = _repository.GetById(id);
-            return Ok(product);
+            return _repository.GetById(id);            
         }
 
         [HttpGet("Search/{filter}")]
         public IEnumerable<Product> Search(string filter)
         {
             filter = (filter == "empty") ? "" : filter;
-            var result = _repository.Search(filter);
-            return result;
+            return _repository.Search(filter);            
         }
     }
 }

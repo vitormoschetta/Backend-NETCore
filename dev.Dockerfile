@@ -1,27 +1,16 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 
-COPY *.sln App/
-COPY src/Domain/*.csproj App/src/Domain/
-COPY src/Infra/*.csproj App/src/Infra/
-COPY src/Tests/*.csproj App/src/Tests/
-COPY src/Api/*.csproj App/src/Api/
+COPY *.sln app/
+COPY src/ app/src/
 
-WORKDIR /App
-RUN dotnet restore
-
-COPY src/Api/. ./Api/
-COPY src/Domain/. ./Domain/
-COPY src/Infra/. ./Infra/
-COPY src/Tests/. ./Tests/
-
-WORKDIR /App
+WORKDIR /app
 RUN dotnet test --logger:trx
 
-WORKDIR /App/Api
-RUN dotnet publish -c Release -o out
+WORKDIR /app/src/Api
+RUN dotnet publish -c Release -o /app/bin
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
-COPY --from=build /App/Api/out ./
+FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
+COPY --from=build /app/bin ./
 
 ENTRYPOINT ["dotnet", "api.dll"]
 

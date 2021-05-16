@@ -1,6 +1,9 @@
+using System.Linq;
 using Api.Configurations;
+using Infra.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,8 +32,14 @@ namespace api
             services.ConfigureSwagger();            
         }
         
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppDbContext context)
         {
+            if (context.Database.GetPendingMigrations().Any())
+            {
+                context.Database.Migrate();
+                InitializeData.InitializeProducts(context);
+            }
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

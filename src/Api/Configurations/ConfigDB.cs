@@ -25,8 +25,7 @@ namespace Api.Configurations
                 options.UseSqlite(connectionString));
 
 
-            // Passa string de conexao para a camada de dominio, de onde a Infra irá recuperar.
-            new AppSettings(connectionString);
+            AppSettings.SetConnectionString(connectionString);
         }
         
     }

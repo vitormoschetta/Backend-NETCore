@@ -1,15 +1,20 @@
 namespace Domain
 {
-    public class AppSettings
+    public static class AppSettings
     {
-        public static string ConnectionString { get; private set; }      
-        public AppSettings(string con)
+        private static string ConnectionString { get; set; }
+
+        public static void SetConnectionString(string connectionString)
         {
-            if (ConnectionString != null)
+            if (!string.IsNullOrEmpty(ConnectionString))
                 return;
-                
-            ConnectionString = con;
-        }                
-                     
+
+            ConnectionString = connectionString;
+        }
+
+        public static string GetConnectionString()
+        {
+            return ConnectionString;
+        }
     }
 }

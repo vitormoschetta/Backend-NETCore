@@ -37,7 +37,7 @@ namespace api
             if (context.Database.GetPendingMigrations().Any())
             {
                 context.Database.Migrate();
-                InitializeData.InitializeProducts(context);
+                //InitializeData.InitializeProducts(context);
             }
 
             if (env.IsDevelopment())

@@ -14,5 +14,5 @@ services:
     expose:
       - 6050
     volumes:      
-      - sqlite:/Data      
+      - sqlite:/Data  
 

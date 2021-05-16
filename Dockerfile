@@ -1,6 +1,9 @@
 ARG  DOTNET_VERSION=5.0
 FROM mcr.microsoft.com/dotnet/sdk:${DOTNET_VERSION} AS build
 
+COPY seed-sqlite /seeds/
+RUN dotnet publish -c Release -o /seeds/bin/
+
 COPY *.sln /app/
 COPY src/ /app/src
 

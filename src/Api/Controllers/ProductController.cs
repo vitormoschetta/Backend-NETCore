@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Domain.Commands;
+using Domain.Commands.Responses;
 using Domain.Contracts.Handlers;
 using Domain.Contracts.Repositories;
 using Domain.Entities;
@@ -20,29 +21,29 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        public CommandResult Create(ProductCreateCommand command)
+        public GenericResponse Create(ProductCreateCommand command)
         {
             return _handler.Handle(command);
 
         }
 
         [HttpPut("{id}")]
-        public CommandResult Update(string id, ProductUpdateCommand command)
+        public GenericResponse Update(string id, ProductUpdateCommand command)
         {
             if (id != command.Id)
-                return new CommandResult(false, "Id inválido. ", null);
+                return new GenericResponse(false, "Id inválido. ", null);
 
             return _handler.Handle(command);
         }
 
         [HttpPut("AddPromotion/{id}")]
-        public CommandResult AddPromotion(string id, ProductPromotionCommand command)
+        public GenericResponse AddPromotion(string id, ProductPromotionCommand command)
         {
             return _handler.Handle(command);
         }
 
         [HttpDelete("{id}")]
-        public CommandResult Delete(ProductDeleteCommand command)
+        public GenericResponse Delete(ProductDeleteCommand command)
         {
             return _handler.Handle(command);
         }

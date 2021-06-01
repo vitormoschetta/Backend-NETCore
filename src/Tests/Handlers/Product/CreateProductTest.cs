@@ -1,11 +1,11 @@
 using Domain.Commands;
-using Domain.Handlers;
+using Domain.Commands.Handlers;
 using Tests.Mock;
 using Xunit;
 
 namespace Tests.Handlers
 {
-    
+
     public class CreateProductTest
     {
 
@@ -13,7 +13,7 @@ namespace Tests.Handlers
         public void AddProductHandler_valid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
 
             var command = new ProductCreateCommand();
             command.Name = "Product D";
@@ -27,7 +27,7 @@ namespace Tests.Handlers
         public void AddProductHandler_Null_Name_Invalid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
 
             var command = new ProductCreateCommand();
             command.Name = null;
@@ -41,7 +41,7 @@ namespace Tests.Handlers
         public void AddProductHandler_Empty_Name_Invalid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
 
             var command = new ProductCreateCommand();
             command.Name = "";
@@ -55,7 +55,7 @@ namespace Tests.Handlers
         public void AddProductHandler_Lenght_Name_4_Invalid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
 
             var command = new ProductCreateCommand();
             command.Name = "Pro";
@@ -69,7 +69,7 @@ namespace Tests.Handlers
         public void AddProductHandler_Negative_Price_Invalid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
 
             var command = new ProductCreateCommand();
             command.Name = "Product D";
@@ -83,7 +83,7 @@ namespace Tests.Handlers
         public void AddProductHandler_Exists_Name_Invalid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
             
             var command = new ProductCreateCommand();
             command.Name = "Product A";

@@ -1,20 +1,19 @@
-using System;
 using System.Linq;
 using Domain.Commands;
-using Domain.Handlers;
+using Domain.Commands.Handlers;
 using Tests.Mock;
 using Xunit;
 
 namespace Tests.Handlers
 {
-    
+
     public class DeleteProductTest
     {
        [Fact]
         public void DeleteProductHandler_valid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
 
             string id = repository.GetAll().FirstOrDefault().Id;
 
@@ -30,7 +29,7 @@ namespace Tests.Handlers
         public void DeleteProductHandler_NotExists_Invalid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
 
             string id = repository.GetAll().FirstOrDefault().Id;
 

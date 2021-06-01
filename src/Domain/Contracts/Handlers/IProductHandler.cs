@@ -1,14 +1,14 @@
-using System;
 using Domain.Commands;
+using Domain.Commands.Responses;
 
 namespace Domain.Contracts.Handlers
 {
     public interface IProductHandler
     {
         // Write
-        CommandResult Handle(ProductCreateCommand command);
-        CommandResult Handle(ProductUpdateCommand command);
-        CommandResult Handle(ProductPromotionCommand command);
-        CommandResult Handle(ProductDeleteCommand command);
+        GenericResponse Handle(ProductCreateCommand command);
+        GenericResponse Handle(ProductUpdateCommand command);
+        GenericResponse Handle(ProductPromotionCommand command);
+        GenericResponse Handle(ProductDeleteCommand command);
     }
 }

@@ -1,8 +1,8 @@
-namespace Domain.Commands
+namespace Domain.Commands.Responses
 {
-    public class CommandResult
+    public class GenericResponse
     {
-        public CommandResult(bool success, string message, object data = null)
+        public GenericResponse(bool success, string message, object data = null)
         {
             Success = success;
             Message = message;

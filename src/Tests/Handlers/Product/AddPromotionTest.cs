@@ -1,18 +1,18 @@
 using System.Linq;
 using Domain.Commands;
-using Domain.Handlers;
+using Domain.Commands.Handlers;
 using Tests.Mock;
 using Xunit;
 
 namespace Tests.Handlers.Product
-{   
+{
     public class AddPromotionTest
     {
        [Fact]
         public void AddPromotionHandler_valid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
 
             var command = new ProductPromotionCommand();
             command.Id = repository.GetAll().FirstOrDefault().Id;            
@@ -26,7 +26,7 @@ namespace Tests.Handlers.Product
         public void AddPromotionHandler_price_invalid()
         {
             var repository = new FakeProductRepository();
-            var handler = new ProductHandler(repository);
+            var handler = new ProductCommandHandler(repository);
 
             var command = new ProductPromotionCommand();
             command.Id = repository.GetAll().FirstOrDefault().Id;            

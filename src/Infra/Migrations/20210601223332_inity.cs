@@ -7,23 +7,23 @@ namespace Infra.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Product",
+                name: "product",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "TEXT", nullable: false),
-                    Name = table.Column<string>(type: "varchar(120)", maxLength: 120, nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(10, 2)", nullable: false)
+                    id = table.Column<string>(type: "char(36)", nullable: false),
+                    name = table.Column<string>(type: "varchar(120)", nullable: false),
+                    price = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.PrimaryKey("PK_product", x => x.id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Product");
+                name: "product");
         }
     }
 }

@@ -9,23 +9,15 @@ namespace Api.Configurations
 {
     public static partial class ServicesConfiguration
     {
-        public static void ConfigureDbContext(
-            this IServiceCollection Services, 
-            IWebHostEnvironment Enviroment, 
-            IConfiguration Configuration)
-        {            
-            var connectionString = string.Empty;
-
-            if (Enviroment.EnvironmentName == "Development")
-                connectionString = Configuration.GetConnectionString("ConnectionDev");
-            else
-                connectionString = Configuration.GetConnectionString("ConnectionProd");
+        public static void ConfigureDbContext(this IServiceCollection Services, 
+            IWebHostEnvironment Enviroment, IConfiguration Configuration)
+        {
+            var connString = Configuration.GetConnectionString("DefaultConnection");
 
             Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlite(connectionString));
+                options.UseSqlServer(connString));
 
-
-            AppSettings.SetConnectionString(connectionString);
+            AppSettings.SetConnectionString(connString);
         }
         
     }

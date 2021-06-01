@@ -11,15 +11,7 @@ namespace Domain.Entities
             Price = price;
 
             Validate();
-        }
-        public Product(string id, string name, decimal price)
-        {
-            Id = id;
-            Name = name;
-            Price = price;            
-
-            Validate();
-        }
+        }     
 
         public string Id { get; private set; }
         public string Name { get; private set; }

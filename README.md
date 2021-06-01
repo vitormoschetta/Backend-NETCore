@@ -120,7 +120,7 @@ As Migrations são geradas a partir do diretório **Source/Api/**.
 
 Para que a pasta Migrations fique localizada na camada '**Infra** (seria o correto)', é preciso especificar executando o seguinte comando:
 ```
-dotnet ef migrations add <migration_name> --project ../Infra/Infra.csproj
+dotnet ef migrations add inity --project ../Infra/Infra.csproj
 ```
 
 Para gerar a base de dados use o seguinte comando:

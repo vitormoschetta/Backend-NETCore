@@ -8,17 +8,21 @@ namespace Infra.Context.Maps
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.ToTable("Product");
+            builder.ToTable("product");
 
-            builder.Property(x => x.Id).IsRequired();
+            builder.Property(x => x.Id)
+                .IsRequired()
+                .HasColumnName("id")
+                .HasColumnType("char(36)");
 
             builder.Property(x => x.Name)
                 .IsRequired()
-                .HasMaxLength(120)
+                .HasColumnName("name")
                 .HasColumnType("varchar(120)");
 
             builder.Property(x => x.Price)
                 .IsRequired()
+                .HasColumnName("price")
                 .HasColumnType("decimal(10, 2)");
 
             builder.HasKey(x => x.Id);

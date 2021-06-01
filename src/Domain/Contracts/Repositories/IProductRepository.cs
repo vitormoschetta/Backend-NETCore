@@ -13,9 +13,9 @@ namespace Domain.Contracts.Repositories
 
         // Read
         Product GetById(string id);
-        List<Product> GetAll();
+        IEnumerable<Product> GetAll();
         bool Exists(string name);       
         bool ExistsUpdate(string name, string id);
-        List<Product> Search(string filter);
+        IEnumerable<Product> Search(string filter);
     }
 }

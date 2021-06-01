@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Domain.Contracts.Repositories;
@@ -39,7 +38,7 @@ namespace Infra.Repositories
         {
             var model = _context.Product.FirstOrDefault(x => x.Name == name);
 
-            if (model != null) 
+            if (model is null)
                 return true;
 
             return false;
@@ -49,34 +48,30 @@ namespace Infra.Repositories
         {
             var model = _context.Product.FirstOrDefault(x => x.Name == name && x.Id != id);
 
-            if (model != null) 
+            if (model is null)
                 return true;
-                
+
             return false;
         }
 
-        public List<Product> GetAll()
+        public IEnumerable<Product> GetAll()
         {
-            return _context.Product
-                .AsNoTracking()
-                .OrderBy(x => x.Name)
-                .ToList();
+            return _context.Product.AsNoTracking();
         }
 
         public Product GetById(string id)
         {
             return _context.Product
-                .AsNoTracking()                
+                .AsNoTracking()
                 .FirstOrDefault(x => x.Id == id);
         }
 
-        public List<Product> Search(string filter)
+        public IEnumerable<Product> Search(string filter)
         {
             return _context.Product
                 .AsNoTracking()
-                .Where(x => x.Name.Contains(filter) || x.Price.ToString().Contains(filter))
-                .ToList();
+                .Where(x => x.Name.Contains(filter) || x.Price.ToString().Contains(filter));                
         }
-      
+
     }
 }

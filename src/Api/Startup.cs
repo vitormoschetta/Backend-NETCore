@@ -21,28 +21,28 @@ namespace api
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Environment { get; }
 
-                
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.ConfigureDbContext(Environment, Configuration);
             services.ConfigureRepositories();
             services.ConfigureHandlers();
-            services.AddCORS();          
-            services.ConfigureSwagger();            
+            services.AddCORS();
+            services.ConfigureSwagger();
         }
-        
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppDbContext context)
         {
-            if (context.Database.GetPendingMigrations().Any())
-            {
-                context.Database.Migrate();
-                //InitializeData.InitializeProducts(context);
-            }
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
+                if (context.Database.GetPendingMigrations().Any())
+                {
+                    context.Database.Migrate();
+                    InitializeData.InitializeProducts(context);
+                }
             }
 
             app.UseHttpsRedirection();

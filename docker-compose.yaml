@@ -1,18 +1,33 @@
 version: '3'
 
-volumes:
-  sqlite: {}
-
 services:
   app:
-    container_name: backend-netcore
+    container_name: backend-netcore.app
+    image: netcoreapp
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "6050:6050" 
+      - "6050:6050"
     expose:
       - 6050
-    volumes:      
-      - sqlite:/Data  
+    depends_on:
+      - db
+    networks:
+      - internal
 
+  db:
+    container_name: backend-netcore.db
+    image: mcr.microsoft.com/mssql/server:2019-latest    
+    ports:
+      - "1433:1433"   
+    environment:
+      SA_PASSWORD: "Pass123*"
+      ACCEPT_EULA: "Y"       
+    networks:
+      - internal  
+   
+
+networks: 
+    internal:
+        driver: bridge

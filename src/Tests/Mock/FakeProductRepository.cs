@@ -62,7 +62,7 @@ namespace Tests.Mock
             return false;
         }
 
-        public List<Product> GetAll()
+        public IEnumerable<Product> GetAll()
         {
             return List.OrderBy(x => x.Name).ToList();
         }
@@ -72,7 +72,7 @@ namespace Tests.Mock
             return List.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<Product> Search(string filter)
+        public IEnumerable<Product> Search(string filter)
         {
             var lista = List
                 .Where(x => x.Name.Contains(filter) || x.Price.ToString().Contains(filter))

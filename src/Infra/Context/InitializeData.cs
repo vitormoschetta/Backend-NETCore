@@ -12,7 +12,7 @@ namespace Infra.Context
 
             for (int i = 1; i < 13; i++)
             {
-                var product = new Product(i.ToString(), $"Product {i}", (i + i) * 2);
+                var product = new Product($"Product {i}", (i + i) * 2);
 
                 context.Product.Add(product);
                 context.SaveChanges();

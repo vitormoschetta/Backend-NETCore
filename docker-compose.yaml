@@ -6,7 +6,7 @@ services:
     image: netcoreapp
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: unitTest.Dockerfile
     ports:
       - "6060:6060"
     expose:

@@ -12,6 +12,3 @@ EXPOSE 6050
 
 ENTRYPOINT ["dotnet", "api.dll"]
 
-
-
-

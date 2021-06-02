@@ -19,11 +19,11 @@ docker-compose up -d --build
 
 <br>
 
-Pode demorar alguns minutos, pois se você ainda não tiver as imagens do SDK .NET Core 3.1 na máquina, o Docker tratará de fazer o download.
+Pode demorar alguns minutos, pois se você ainda não tiver as imagens do SDK .NET 5.0 na máquina, o Docker tratará de fazer o download.
 
 Ao terminar o processo esta aplicação estará disponivel localmente na seguinte url:
 
-<http://localhost:5000/index.html>
+<http://localhost:6060/index.html>
 
 
 
@@ -33,9 +33,9 @@ Ao terminar o processo esta aplicação estará disponivel localmente na seguint
 
 ### 2. Com SDK .NET Core
 
-Se não quiser usar o Docker vocẽ pode optar por executar no próprio _host_, mas precisará do SDK .NET Core 3.1 ou superior.
+Se não quiser usar o Docker vocẽ pode optar por executar no próprio _host_, mas precisará do SDK .NET 5.0 ou superior.
 
-Se ainda não possui o .NET Core SDK instalado, segue o link:   
+Se ainda não possui o .NET SDK instalado, segue o link:   
 
 <https://dotnet.microsoft.com/download>
 
@@ -59,11 +59,11 @@ dotnet run
 
 Se tudo ocorreu como esperávamos, a seguinte URL ficará disponível:   
 
-http://localhost:5000/index.html
+http://localhost:5050/index.html
 
 ou:
 
-https://localhost:5001/index.html
+https://localhost:5051/index.html
 
 
 
@@ -83,7 +83,7 @@ Nosso projeto de backend está dividido em três partes principais, mais a camad
 Api
 ```
 
-###### dotnet new classlib
+###### dotnet new classlib netstandar2.1
 ```
 Domain
 Infra
@@ -109,14 +109,22 @@ Tests
 
 --- 
 
+# ORM
+
+Este projeto utiliza o ORM Entity Framework Version="5.0.5".
+
+<br>
+<br>
+
+
 # Base de Dados
 
-Neste projeto estamos utilizando o banco de dados embarcado SQLite.
+Neste projeto estamos utilizando o banco de dados MS SqlServer. Podemos mudar para qualquer outra banco de dados que tenha suporte ao Entity Framework de forma rápida e fácil.
 
 
 ### Migrations 
 
-As Migrations são geradas a partir do diretório **Source/Api/**.  
+As Migrations são geradas a partir do diretório **Source/Api/**.
 
 Para que a pasta Migrations fique localizada na camada '**Infra** (seria o correto)', é preciso especificar executando o seguinte comando:
 ```
@@ -132,9 +140,3 @@ dotnet ef database update
 
 **Detalhe**: Se for utilizar o docker para instanciar um container da aplicação, saiba que a criação e inicialização do banco de dados já está configurada.
 
-
-
-<br>
-
-Esta API está hospedada na AWS:
-<http://aspnetcore-dev.eba-idh62xks.us-east-1.elasticbeanstalk.com/index.html>

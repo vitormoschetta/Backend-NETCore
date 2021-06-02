@@ -1,11 +1,11 @@
 using Domain.Commands.Responses;
-using Domain.Contracts.Handlers;
+using Domain.Contracts.Commands;
 using Domain.Contracts.Repositories;
 using Domain.Entities;
 
 namespace Domain.Commands.Handlers
 {
-    public class ProductCommandHandler : Notifiable, IProductHandler
+    public class ProductCommandHandler : Notifiable, IProductCommandHandler
     {
         private readonly IProductRepository _repository;
         public ProductCommandHandler(IProductRepository repository)

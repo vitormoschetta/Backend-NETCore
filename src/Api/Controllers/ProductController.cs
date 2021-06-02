@@ -1,9 +1,10 @@
+using System;
 using System.Collections.Generic;
 using Domain.Commands;
 using Domain.Commands.Responses;
-using Domain.Contracts.Handlers;
-using Domain.Contracts.Repositories;
-using Domain.Entities;
+using Domain.Contracts.Commands;
+using Domain.Contracts.Queries;
+using Domain.Queries.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -12,60 +13,64 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository _repository;
-        private readonly IProductHandler _handler;
-        public ProductController(IProductRepository repository, IProductHandler handler)
-        {
-            _repository = repository;
-            _handler = handler;
-        }
 
         [HttpPost]
-        public GenericResponse Create(ProductCreateCommand command)
+        public GenericResponse Create([FromServices] IProductCommandHandler handler,
+            [FromBody] ProductCreateCommand command)
         {
-            return _handler.Handle(command);
+            return handler.Handle(command);
 
         }
 
+
         [HttpPut("{id}")]
-        public GenericResponse Update(string id, ProductUpdateCommand command)
+        public GenericResponse Update([FromServices] IProductCommandHandler handler,
+            Guid id, [FromBody] ProductUpdateCommand command)
         {
             if (id != command.Id)
                 return new GenericResponse(false, "Id inválido. ", null);
 
-            return _handler.Handle(command);
+            return handler.Handle(command);
         }
+
 
         [HttpPut("AddPromotion/{id}")]
-        public GenericResponse AddPromotion(string id, ProductPromotionCommand command)
+        public GenericResponse AddPromotion([FromServices] IProductCommandHandler handler,
+            Guid id, [FromBody] ProductPromotionCommand command)
         {
-            return _handler.Handle(command);
+            return handler.Handle(command);
         }
 
+
         [HttpDelete("{id}")]
-        public GenericResponse Delete(ProductDeleteCommand command)
+        public GenericResponse Delete([FromServices] IProductCommandHandler handler,
+            [FromBody] ProductDeleteCommand command)
         {
-            return _handler.Handle(command);
+            return handler.Handle(command);
         }
 
 
         [HttpGet]
-        public IEnumerable<Product> GetAll()
+        public IEnumerable<ProductResponse> GetAll([FromServices] IProductQueryHandler handler)
         {
-            return _repository.GetAll();
+            return handler.Handle();
         }
+
 
         [HttpGet("{id}")]
-        public Product GetById(string id)
+        public ProductResponse GetById([FromServices] IProductQueryHandler handler,
+            Guid id)
         {
-            return _repository.GetById(id);            
+            return handler.Handle(id);
         }
 
+
         [HttpGet("Search/{filter}")]
-        public IEnumerable<Product> Search(string filter)
+        public IEnumerable<ProductResponse> Search([FromServices] IProductQueryHandler handler,
+            string filter)
         {
             filter = (filter == "empty") ? "" : filter;
-            return _repository.Search(filter);            
+            return handler.Handle(filter);
         }
     }
 }

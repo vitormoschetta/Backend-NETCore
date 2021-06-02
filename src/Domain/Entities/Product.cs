@@ -4,16 +4,19 @@ namespace Domain.Entities
 {
     public class Product: Notifiable
     {
+        public Product()
+        {            
+        }
         public Product(string name, decimal price)
         {
-            Id = Guid.NewGuid().ToString();
+            Id = Guid.NewGuid();
             Name = name;
             Price = price;
 
             Validate();
         }     
 
-        public string Id { get; private set; }
+        public Guid Id { get; private set; }
         public string Name { get; private set; }
         public decimal Price { get; private set; }        
 

@@ -9,13 +9,13 @@ namespace Domain.Contracts.Repositories
         // Write
         void Create(Product model);
         void Update(Product model);
-        void Delete(string id);
+        void Delete(Guid id);
 
         // Read
-        Product GetById(string id);
+        Product GetById(Guid id);
         IEnumerable<Product> GetAll();
         bool Exists(string name);       
-        bool ExistsUpdate(string name, string id);
+        bool ExistsUpdate(string name, Guid id);
         IEnumerable<Product> Search(string filter);
     }
 }

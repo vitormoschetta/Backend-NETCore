@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Domain.Commands;
 using Domain.Commands.Handlers;
@@ -15,7 +16,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductCommandHandler(repository);
 
-            string id = repository.GetAll().FirstOrDefault().Id;
+            var id = repository.GetAll().FirstOrDefault().Id;
 
             var command = new ProductDeleteCommand();
             command.Id = id;
@@ -31,7 +32,7 @@ namespace Tests.Handlers
             var repository = new FakeProductRepository();
             var handler = new ProductCommandHandler(repository);
 
-            string id = repository.GetAll().FirstOrDefault().Id;
+            var id = repository.GetAll().FirstOrDefault().Id;
 
             var command = new ProductDeleteCommand();
             command.Id = id;

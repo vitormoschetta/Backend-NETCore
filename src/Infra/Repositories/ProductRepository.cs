@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Domain.Contracts.Repositories;
@@ -21,7 +22,7 @@ namespace Infra.Repositories
             _context.SaveChanges();
         }
 
-        public void Delete(string id)
+        public void Delete(Guid id)
         {
             var model = _context.Product.FirstOrDefault(x => x.Id == id);
             _context.Remove(model);
@@ -44,14 +45,14 @@ namespace Infra.Repositories
             return false;
         }
 
-        public bool ExistsUpdate(string name, string id)
+        public bool ExistsUpdate(string name, Guid id)
         {
             var model = _context.Product.FirstOrDefault(x => x.Name == name && x.Id != id);
 
             if (model is null)
-                return true;
+                return false;
 
-            return false;
+            return true;
         }
 
         public IEnumerable<Product> GetAll()
@@ -59,7 +60,7 @@ namespace Infra.Repositories
             return _context.Product.AsNoTracking();
         }
 
-        public Product GetById(string id)
+        public Product GetById(Guid id)
         {
             return _context.Product
                 .AsNoTracking()

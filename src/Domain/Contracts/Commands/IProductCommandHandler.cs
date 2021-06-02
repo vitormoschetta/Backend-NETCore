@@ -1,11 +1,10 @@
 using Domain.Commands;
 using Domain.Commands.Responses;
 
-namespace Domain.Contracts.Handlers
+namespace Domain.Contracts.Commands
 {
-    public interface IProductHandler
+    public interface IProductCommandHandler
     {
-        // Write
         GenericResponse Handle(ProductCreateCommand command);
         GenericResponse Handle(ProductUpdateCommand command);
         GenericResponse Handle(ProductPromotionCommand command);

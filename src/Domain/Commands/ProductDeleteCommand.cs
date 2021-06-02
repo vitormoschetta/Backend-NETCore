@@ -1,7 +1,9 @@
+using System;
+
 namespace Domain.Commands
 {
     public class ProductDeleteCommand
     {
-        public string Id { get; set; }   
+        public Guid Id { get; set; }   
     }
 }

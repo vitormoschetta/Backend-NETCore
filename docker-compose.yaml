@@ -8,13 +8,15 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "6050:6050"
+      - "6060:6060"
     expose:
-      - 6050
-    depends_on:
-      - db
+      - 6060
+    volumes:
+      - ./src/Api/appsettings-compose.json:/app/bin/appsettings.json
     networks:
       - internal
+    depends_on:
+      - db
 
   db:
     container_name: backend-netcore.db

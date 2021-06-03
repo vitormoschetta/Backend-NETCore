@@ -3,7 +3,7 @@ version: '3'
 services:
   app:
     container_name: backend-netcore.app
-    image: netcoreapp
+    image: backend-netcore.app
     build:
       context: .
       dockerfile: unitTest.Dockerfile

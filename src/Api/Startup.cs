@@ -37,12 +37,12 @@ namespace api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                
-                if (context.Database.GetPendingMigrations().Any())
-                {
-                    context.Database.Migrate();
-                    InitializeData.InitializeProducts(context);
-                }
+            }
+
+            if (context.Database.GetPendingMigrations().Any())
+            {
+                context.Database.Migrate();
+                InitializeData.InitializeProducts(context);
             }
 
             app.UseHttpsRedirection();

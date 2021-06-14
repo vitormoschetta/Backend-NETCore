@@ -15,9 +15,9 @@ namespace Infra.Context
                 var product = new Product($"Product {i}", (i + i) * 2);
 
                 context.Product.Add(product);
-                context.SaveChanges();
             }
 
+            context.SaveChanges();
         }
     }
 }

@@ -1,39 +1,44 @@
+using System;
 using System.Linq;
 using Domain.Commands;
 using Domain.Commands.Handlers;
 using Tests.Mock;
 using Xunit;
 
-namespace Tests.Handlers.Product
+namespace Tests.Commands.Handlers
 {
-    public class AddPromotionTest
+
+    public class DeleteProductTest
     {
        [Fact]
-        public void AddPromotionHandler_valid()
+        public void DeleteProductHandler_valid()
         {
             var repository = new FakeProductRepository();
             var handler = new ProductCommandHandler(repository);
 
-            var command = new ProductPromotionCommand();
-            command.Id = repository.GetAll().FirstOrDefault().Id;            
-            command.Price = 1.5m;
+            var id = repository.GetAll().FirstOrDefault().Id;
+
+            var command = new ProductDeleteCommand();
+            command.Id = id;
 
             var result = handler.Handle(command);
             Assert.True(result.Success, result.Message);
         }
 
-        [Fact]
-        public void AddPromotionHandler_price_invalid()
+
+       [Fact]
+        public void DeleteProductHandler_NotExists_Invalid()
         {
             var repository = new FakeProductRepository();
             var handler = new ProductCommandHandler(repository);
 
-            var command = new ProductPromotionCommand();
-            command.Id = repository.GetAll().FirstOrDefault().Id;            
-            command.Price = 11.5m;
+            var id = repository.GetAll().FirstOrDefault().Id;
 
+            var command = new ProductDeleteCommand();
+            command.Id = id;
+            
             var result = handler.Handle(command);
-            Assert.False(result.Success, result.Message);
+            Assert.True(result.Success, result.Message);
         }
     }
 }

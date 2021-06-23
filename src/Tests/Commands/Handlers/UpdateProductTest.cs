@@ -4,9 +4,8 @@ using Domain.Commands.Handlers;
 using Tests.Mock;
 using Xunit;
 
-namespace Tests.Handlers
+namespace Tests.Commands.Handlers
 {
-
     public class UpdateProductTest
     {
        [Fact]
